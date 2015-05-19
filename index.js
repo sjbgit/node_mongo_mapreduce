@@ -7,7 +7,7 @@ var db = mongojs('mongodb://test:test@ds037622.mongolab.com:37622/mapreducedb', 
 
 /*
 var gen = require('./generator.js');
-gen.generate('0_MDTA', 30);
+gen.generate('1_MDTA', 45);
 console.log(gen);
 
 
