@@ -1,27 +1,27 @@
 /**
- * Created by sbunke on 5/18/2015.
+ * Created by sbunke on 7/6/2015.
  */
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://test:test@ds037622.mongolab.com:37622/mapreducedb', ['sourceData', 'examplex', 'example1_results']);//collections that are accessible
+var db = mongojs('mongodb://test1:test1@ds047782.mongolab.com:47782/testcrud', ['aggregates', 'reduced1', 'example1_results']);//collections that are accessible
 
 var example1 = {};
 example1.execute = function () {
     var mapper = function () {
-        emit(this.gender, 1);
+        emit(this.identifier, this.count);
     };
 
     var reducer = function (gender, count) {
         return Array.sum(count);
     };
 
-    db.sourceData.mapReduce(
+    db.aggregates.mapReduce(
         mapper,
         reducer, {
-            out: "examplex"
+            out: "reduced1"
         }
     );
 
-    db.examplex.find(function (err, docs) {
+    db.reduced1.find(function (err, docs) {
         if (err) console.log(err);
         console.log("\n", docs);
     });
