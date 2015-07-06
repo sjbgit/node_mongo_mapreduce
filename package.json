@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sjbgit/node_mongo_mapreduce",
   "dependencies": {
-    "mongojs": "^0.18.2"
+    "mongojs": "^0.18.2",
+    "mongoose": "^4.0.6"
   }
 }

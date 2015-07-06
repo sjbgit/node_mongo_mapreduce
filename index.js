@@ -25,10 +25,15 @@ db.sourceData.insert(sample, function (err, docs) {
 var example1 = require('./example1.js');
 example1.execute();
 */
-
+/*
 var aggr1 = require('./aggr1.js');
 aggr1.execute();
+*/
 
+/*
+var goose1 = require('./goose1.js');
+goose1();
+*/
 
 
 

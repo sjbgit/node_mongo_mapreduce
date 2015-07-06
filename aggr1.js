@@ -30,7 +30,7 @@ example1.execute = function () {
             if (err) console.log(err);
             console.log("\n", docs);
         });
-    } 
+    }
 
     //outputReduced();
     /*
