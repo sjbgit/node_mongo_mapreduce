@@ -15,7 +15,7 @@ var aggregateSchema = new mongoose.Schema({
 });
 
 
-var AggregateSchema = mongoose.model('AggregateSchema', aggregateSchema);
+var AggregateSchema = mongoose.model('aggregates', aggregateSchema);
 
 
 var map = function(){
@@ -31,6 +31,9 @@ var reduce =  function (gender, count) {
 var  o = {
     map: map,
     reduce: reduce,
+    out: { replace: 'reducedFromNode2_limit' },
+    verbose: true,
+    //query: { identifier: /^[7-8]/}
 }
 
 AggregateSchema.mapReduce(o, function(err, results, stats) {
