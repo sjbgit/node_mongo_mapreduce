@@ -17,14 +17,28 @@ example1.execute = function () {
     db.aggregates.mapReduce(
         mapper,
         reducer, {
-            out: "reduced1"
-        }
+            out: "reduced1", //that added additional
+            //out: { merge: 'reduced1'},
+            //query: { by: /^[a-z]/},
+        },
+        outputReduced
     );
 
+    function outputReduced(data) {
+        //console.log(data);
+        db.reduced1.find(function (err, docs) {
+            if (err) console.log(err);
+            console.log("\n", docs);
+        });
+    } 
+
+    //outputReduced();
+    /*
     db.reduced1.find(function (err, docs) {
         if (err) console.log(err);
         console.log("\n", docs);
     });
+    */
 };
 
 module.exports = example1;
